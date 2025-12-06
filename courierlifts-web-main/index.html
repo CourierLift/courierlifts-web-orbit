@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courier Lifts | Delivery Revolution</title>
+    <meta
+      name="description"
+      content="Courier Lifts: The all-in-one P2P delivery revolution with real-time transparency."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      // Optional: set this for local dev switching; remove or change for prod
+      window.BACKEND_URL = window.BACKEND_URL || "http://localhost:8000";
+    </script>
+    <script defer src="script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+  window.BACKEND_URL = "/api";  // production: use Netlify proxy
+</script>
+
+  </head>
+  <body>
+    <div class="app">
+      <!-- Optional fixed UI placeholders (script.js will auto-create if missing) -->
+      <div id="toast" class="cl-toast" style="display:none;"></div>
+      <div id="loginStatus" class="cl-badge"></div>
+
+      <header class="site-header">
+        <div class="logo-container">
+          <img
+            id="logo"
+            src="assets/logo_transparent_light.png"
+            alt="Courier Lifts Logo"
+          />
+          <span class="brand-name">COURIER LIFTS</span>
+        </div>
+        <label class="theme-toggle">
+          <span>Dark</span>
+          <input type="checkbox" id="themeSwitch" />
+          <span class="slider"></span>
+        </label>
+      </header>
+
+      <main>
+        <!-- 💬 Login Section -->
+        <section class="login-section">
+          <h1>Your All-in-One Delivery Revolution</h1>
+          <p class="tagline">
+            Connecting couriers, merchants, and consumers like never before.
+          </p>
+
+          <form id="loginForm" aria-labelledby="login-label">
+            <h2 id="login-label" class="visually-hidden">Login Form</h2>
+
+            <label for="loginEmail">Email</label>
+            <input
+              type="email"
+              id="loginEmail"
+              name="email"
+              placeholder="Email"
+              required
+              autocomplete="email"
+            />
+
+            <label for="loginPassword">Password</label>
+            <input
+              type="password"
+              id="loginPassword"
+              name="password"
+              placeholder="Password"
+              required
+              autocomplete="current-password"
+            />
+
+            <label for="role">Your Role</label>
+            <select id="role" name="role" required>
+              <option value="">
+                Select your role: Courier, Merchant, Customer
+              </option>
+              <option value="courier">Courier</option>
+              <option value="merchant">Merchant</option>
+              <option value="customer">Customer</option>
+            </select>
+
+            <button id="loginBtn" type="submit" class="glow">LOGIN</button>
+            <p id="loginMsg" aria-live="polite"></p>
+          </form>
+
+          <div class="links">
+            <a href="signup.html">Sign Up</a>
+            <a href="why.html">Why Courier Lifts?</a>
+            <a href="learn-more.html">Learn More</a>
+          </div>
+
+          <div class="quote-link">
+            <a class="glow cta-button" href="#quote-section"
+              >Get My Instant Delivery Quote</a
+            >
+          </div>
+
+          <div class="social-icons">
+            <a
+              href="https://x.com/CourierLiftsApp"
+              target="_blank"
+              aria-label="X (Twitter)"
+            >
+              <img src="assets/x.svg" alt="X" />
+            </a>
+            <a
+              href="https://facebook.com/CourierLiftsApp"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <img src="assets/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
+
+          <footer>
+            <p>© 2025 Courier Lifts. Built with speed and hustle.</p>
+          </footer>
+        </section>
+
+        <!-- 🚚 Quote Calculator -->
+        <section id="quote-section" class="animate-on-scroll">
+          <h2>Get Your Delivery Quote</h2>
+
+          <form id="quoteForm" class="quote-form">
+            <label for="pickup">Pickup Address</label>
+            <input
+              type="text"
+              id="pickup"
+              placeholder="Pickup Address"
+              required
+            />
+
+            <label for="dropoff">Dropoff Address</label>
+            <input
+              type="text"
+              id="dropoff"
+              placeholder="Dropoff Address"
+              required
+            />
+
+            <label for="vehicle">Vehicle Type</label>
+            <select id="vehicle" required aria-required="true">
+              <option value="">Select Vehicle Type</option>
+              <option value="bike">Bike</option>
+              <option value="car">Car</option>
+              <option value="van">Van</option>
+              <option value="truck">Truck</option>
+            </select>
+
+            <label for="weight">Item Weight (lbs)</label>
+            <input
+              type="number"
+              id="weight"
+              placeholder="Item Weight (lbs)"
+              min="0"
+              required
+              aria-required="true"
+            />
+
+            <label for="quantity">Item Quantity</label>
+            <input
+              type="number"
+              id="quantity"
+              placeholder="Item Quantity"
+              min="1"
+              required
+              aria-required="true"
+            />
+
+            <label for="dimensions">Dimensions (L x W x H in inches)</label>
+            <input
+              type="text"
+              id="dimensions"
+              placeholder="Dimensions (L x W x H in inches)"
+            />
+
+            <label for="item_type">Item Type</label>
+            <select id="item_type" required aria-required="true">
+              <option value="">Select Item Type</option>
+              <option value="general">General Goods</option>
+              <option value="electronics">Electronics</option>
+              <option value="furniture">Furniture</option>
+              <option value="fragile">Fragile / Specialty</option>
+            </select>
+
+            <button id="quoteBtn" type="submit" class="glow">Get Estimate</button>
+          </form>
+
+          <div id="quoteResult" class="quote-result"></div>
+          <div id="priceOut" class="quote-result" aria-live="polite"></div>
+        </section>
+
+        <!-- 🧾 My Orders (new) -->
+        <section class="orders-section animate-on-scroll">
+          <h2>My Orders</h2>
+          <button id="myOrdersBtn" class="glow">📦 My Orders</button>
+          <div id="orderOut" class="quote-result" aria-live="polite"></div>
+          <div id="ordersOut"></div>
+        </section>
+
+        <!-- ✉️ Pilot Sign-Up -->
+        <section class="pilot-signup animate-on-scroll">
+          <h3>Join Our Early Access Pilot</h3>
+          <p>
+            Be the first to test our delivery revolution—exclusive perks for
+            couriers, merchants, and consumers!
+          </p>
+
+          <form id="pilotForm">
+            <label for="pilotEmail">Email</label>
+            <input
+              type="email"
+              id="pilotEmail"
+              placeholder="Enter your email"
+              required
+              aria-required="true"
+            />
+
+            <label for="pilotRole">Your Role</label>
+            <select id="pilotRole" required aria-required="true">
+              <option value="">Select Role</option>
+              <option value="courier">Courier</option>
+              <option value="merchant">Merchant</option>
+              <option value="customer">Customer</option>
+            </select>
+
+            <button type="submit" class="glow">Join Now</button>
+            <p id="formStatus" style="margin-top: 10px;"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

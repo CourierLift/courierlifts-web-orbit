@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Pilot | Courier Lifts</title>
+  <meta name="description" content="Sign up for early access to Courier Lifts and become part of the delivery revolution." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+    <header class="site-header">
+      <div class="logo-container">
+        <img id="logo" src="assets/logo_transparent_light.png" alt="Courier Lifts Logo" />
+        <span class="brand-name">COURIER LIFTS</span>
+      </div>
+      <label class="theme-toggle">
+        <span>Dark</span>
+        <input type="checkbox" id="themeSwitch" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <main>
+      <section class="login-section">
+        <h1>Join the Courier Lifts Pilot</h1>
+        <p class="tagline">Be the first to try the all-in-one delivery platform for the real world.</p>
+
+        <form id="pilotForm">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+
+          <label for="role">Interested As</label>
+          <select id="role" required>
+            <option value="">Select Role</option>
+            <option value="courier">Courier</option>
+            <option value="merchant">Merchant</option>
+            <option value="customer">Customer</option>
+            <option value="investor">Investor</option>
+          </select>
+
+          <button type="submit" class="glow">Join the Pilot</button>
+          <p id="formStatus" style="margin-top: 10px;"></p>
+        </form>
+
+        <div class="links" style="margin-top:1rem;">
+          <a href="index.html">← Back to Home</a>
+          <a href="why.html">Why Courier Lifts?</a>
+          <a href="learn-more.html">Learn More</a>
+        </div>
+
+        <footer>
+          <p>© 2025 Courier Lifts. Built with speed and hustle. · <a href="mailto:support@courierlifts.com">support@courierlifts.com</a></p>
+        </footer>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

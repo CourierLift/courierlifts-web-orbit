@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Courier Lifts · Log in</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CDN for Orbit UI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orbit: {
+              bg: "#0b0e14",
+              card: "#141824",
+              cardSoft: "#181c27",
+              primary: "#ff7a1a",
+              primarySoft: "rgba(255,122,26,0.12)",
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-orbit-bg text-slate-100 antialiased">
+  <!-- Page shell -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-white/5 bg-black/20 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-orbit-primary to-orange-500 text-sm font-semibold text-black shadow-[0_0_25px_rgba(255,122,26,0.6)]">
+            CL
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm font-semibold tracking-wide">Courier Lifts</span>
+            <span class="text-[11px] text-slate-400">Your All-in-One Delivery Revolution</span>
+          </div>
+        </a>
+
+        <nav class="flex items-center gap-4 text-xs font-medium text-slate-300">
+          <a href="index.html#quote" class="hidden sm:inline-flex hover:text-white">Get a quote</a>
+          <a href="learn-more.html" class="hidden sm:inline-flex hover:text-white">Learn more</a>
+          <a href="why.html" class="hidden sm:inline-flex hover:text-white">Why Courier Lifts?</a>
+          <a href="signup.html" class="hidden sm:inline-flex rounded-full border border-white/10 px-3 py-1 hover:border-orbit-primary hover:text-orbit-primary transition">
+            Join the pilot
+          </a>
+          <span class="inline-flex items-center gap-1 rounded-full bg-orbit-primarySoft px-3 py-1 text-[11px] font-semibold text-orbit-primary">
+            <span class="h-1.5 w-1.5 rounded-full bg-orbit-primary"></span>
+            Pilot access
+          </span>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto px-4 py-10 md:py-16">
+        <div class="grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-center">
+          <!-- Left: copy -->
+          <section class="space-y-4">
+            <p class="text-xs uppercase tracking-[0.25em] text-slate-500">
+              Log in · Pilot program
+            </p>
+            <h1 class="text-3xl md:text-4xl font-semibold">
+              Jump back into your deliveries.
+            </h1>
+            <p class="text-sm md:text-base text-slate-400 max-w-md">
+              One login for <span class="font-semibold text-slate-100">couriers, merchants, and customers</span>.
+              Track active runs, review quotes, and earn pilot-only rewards as we roll out the platform.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-orbit-primary"></span>
+                <span>Couriers: see active jobs, payouts, and route details.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-orange-400"></span>
+                <span>Merchants: access saved quotes and repeat deliveries.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="mt-1 h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                <span>Customers: track status and keep your delivery history in one place.</span>
+              </li>
+            </ul>
+
+            <p class="text-[11px] text-slate-500 max-w-md">
+              Login experience is live for the pilot UI. Account creation and password flows
+              will connect to the full FastAPI backend as we move out of Orbit V2.
+            </p>
+          </section>
+
+          <!-- Right: auth card -->
+          <section>
+            <div class="relative">
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-br from-orbit-primary/40 via-fuchsia-500/20 to-sky-500/25 blur-2xl opacity-70"></div>
+              <div class="relative rounded-3xl border border-white/10 bg-orbit-card/95 p-5 md:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+                <div class="flex items-center justify-between gap-3">
+                  <div>
+                    <h2 class="text-base md:text-lg font-semibold">Log in to Courier Lifts</h2>
+                    <p class="text-xs text-slate-400">
+                      Use the email you joined the pilot with. We’ll wire this up to live auth next.
+                    </p>
+                  </div>
+                  <span class="inline-flex items-center rounded-full bg-orbit-primarySoft px-3 py-1 text-[11px] font-semibold text-orbit-primary">
+                    Pilot build
+                  </span>
+                </div>
+
+                <form class="mt-4 space-y-4" novalidate>
+                  <!-- Email -->
+                  <div class="space-y-1.5">
+                    <label for="login-email" class="text-xs font-medium uppercase tracking-wide text-slate-400">
+                      Email
+                    </label>
+                    <input
+                      id="login-email"
+                      type="email"
+                      inputmode="email"
+                      autocomplete="email"
+                      placeholder="you@example.com"
+                      class="w-full rounded-xl border border-white/10 bg-orbit-cardSoft px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-orbit-primary focus:outline-none focus:ring-1 focus:ring-orbit-primary"
+                    />
+                  </div>
+
+                  <!-- Password -->
+                  <div class="space-y-1.5">
+                    <label for="login-password" class="text-xs font-medium uppercase tracking-wide text-slate-400">
+                      Password
+                    </label>
+                    <input
+                      id="login-password"
+                      type="password"
+                      autocomplete="current-password"
+                      placeholder="••••••••"
+                      class="w-full rounded-xl border border-white/10 bg-orbit-cardSoft px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:border-orbit-primary focus:outline-none focus:ring-1 focus:ring-orbit-primary"
+                    />
+                  </div>
+
+                  <!-- Role -->
+                  <div class="space-y-1.5">
+                    <label for="login-role" class="text-xs font-medium uppercase tracking-wide text-slate-400">
+                      Role (for pilot)
+                    </label>
+                    <select
+                      id="login-role"
+                      class="w-full rounded-xl border border-white/10 bg-orbit-cardSoft px-3 py-2.5 text-sm text-slate-100 focus:border-orbit-primary focus:outline-none focus:ring-1 focus:ring-orbit-primary">
+                      <option value="">Choose your role</option>
+                      <option value="courier">Courier</option>
+                      <option value="merchant">Merchant</option>
+                      <option value="customer">Customer</option>
+                    </select>
+                  </div>
+
+                  <!-- Remember / forgot -->
+                  <div class="flex items-center justify-between gap-3 text-xs text-slate-400">
+                    <label class="inline-flex items-center gap-2 cursor-pointer select-none">
+                      <input type="checkbox" class="h-3.5 w-3.5 rounded border-white/20 bg-orbit-cardSoft text-orbit-primary focus:ring-orbit-primary" />
+                      <span>Remember me on this device</span>
+                    </label>
+                    <button type="button" class="text-[11px] font-medium text-slate-300 hover:text-orbit-primary">
+                      Forgot password?
+                    </button>
+                  </div>
+
+                  <!-- Submit -->
+                  <button
+                    type="button"
+                    class="mt-1 w-full inline-flex items-center justify-center rounded-full bg-orbit-primary px-4 py-2.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,122,26,0.6)] hover:brightness-110 transition">
+                    Log in (UI only for now)
+                  </button>
+
+                  <p class="text-[11px] text-slate-500">
+                    This button just simulates login visually for now. We’ll connect it to your FastAPI
+                    auth endpoint and JWT flow once the backend is wired in.
+                  </p>
+                </form>
+
+                <div class="mt-5 border-t border-white/10 pt-4 space-y-3 text-xs">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-slate-400">New to Courier Lifts?</span>
+                    <a
+                      href="signup.html"
+                      class="inline-flex items-center gap-1 rounded-full border border-orbit-primary/40 bg-orbit-primarySoft px-3 py-1.5 text-[11px] font-semibold text-orbit-primary hover:border-orbit-primary hover:bg-orbit-primary/20 transition">
+                      Join the pilot · It’s free
+                    </a>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="inline-flex items-center gap-1 rounded-full bg-white/5 px-3 py-1.5 text-[11px] text-slate-200 hover:bg-white/10 transition">
+                    Continue as guest to get a quote
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/40">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+        <span>© <span id="footer-year"></span> Courier Lifts · Orbit V2 pilot</span>
+        <div class="flex items-center gap-3">
+          <a href="learn-more.html" class="hover:text-slate-300">Learn more</a>
+          <a href="why.html" class="hover:text-slate-300">Why Courier Lifts?</a>
+          <a href="signup.html" class="hover:text-slate-300">Join the pilot</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple year helper
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

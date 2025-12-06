@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Courier Lifts · Courier dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CDN for Orbit UI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orbit: {
+              bg: "#0b0e14",
+              card: "#141824",
+              cardSoft: "#181c27",
+              primary: "#ff7a1a",
+              primarySoft: "rgba(255,122,26,0.12)",
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-orbit-bg text-slate-100 antialiased">
+  <div class="min-h-screen flex flex-col">
+    <!-- Top header -->
+    <header class="border-b border-white/5 bg-black/30 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-orbit-primary to-orange-500 text-sm font-semibold text-black shadow-[0_0_24px_rgba(255,122,26,0.7)]">
+            CL
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm font-semibold tracking-wide">Courier Lifts</span>
+            <span class="text-[11px] text-slate-400">Courier dashboard · Orbit pilot</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex flex-col text-right leading-tight">
+            <span class="text-xs text-slate-400">Signed in as</span>
+            <span class="text-sm font-medium">Demo courier</span>
+          </div>
+          <!-- Status pill -->
+          <button
+            type="button"
+            class="inline-flex items-center gap-2 rounded-full bg-emerald-500/15 px-4 py-1.5 text-xs font-semibold text-emerald-300 border border-emerald-400/40">
+            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Offline · Tap to go online (UI only)</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content with sidebar -->
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto px-4 py-6 md:py-8 flex flex-col md:flex-row gap-6">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-60 shrink-0 space-y-4">
+          <!-- Courier summary card -->
+          <div class="rounded-3xl border border-white/8 bg-orbit-card/90 p-4 space-y-3 shadow-[0_18px_45px_rgba(0,0,0,0.65)]">
+            <div class="flex items-center gap-3">
+              <div
+                class="h-10 w-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-sm font-semibold text-black">
+                JL
+              </div>
+              <div class="leading-tight">
+                <p class="text-sm font-semibold">Jordan Lane</p>
+                <p class="text-[11px] text-slate-400">Austin, TX · Courier</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-400 pt-2">
+              <div>
+                <p class="uppercase tracking-wide text-[10px] text-slate-500">Pilot rank</p>
+                <p class="text-sm text-slate-100 font-medium">Bronze · 820 pts</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-wide text-[10px] text-slate-500">On-time rate</p>
+                <p class="text-sm text-slate-100 font-medium">97%</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nav list -->
+          <nav class="rounded-3xl border border-white/8 bg-orbit-card/80 p-3 text-sm space-y-1">
+            <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500 px-2 pb-1">
+              Dashboard
+            </p>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl bg-white/5 px-3 py-2 text-xs font-medium text-slate-100 border border-white/10">
+              <span class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-orbit-primary"></span>
+                Overview
+              </span>
+              <span class="text-[11px] text-slate-400">Now</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/5">
+              <span>Active deliveries</span>
+              <span class="text-[11px] text-slate-500">1</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/5">
+              <span>Completed today</span>
+              <span class="text-[11px] text-slate-500">4</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/5">
+              <span>Earnings history</span>
+              <span class="text-[11px] text-slate-500">Pilot</span>
+            </button>
+
+            <div class="pt-3 border-t border-white/5 mt-2 space-y-2">
+              <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500 px-2">
+                Pilot
+              </p>
+              <button
+                class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-[11px] font-medium text-amber-200 bg-orbit-primarySoft border border-orbit-primary/40">
+                <span>Pilot rewards</span>
+                <span>View perks</span>
+              </button>
+            </div>
+          </nav>
+
+          <!-- Small info block -->
+          <div class="rounded-3xl border border-white/8 bg-gradient-to-br from-orbit-card to-orbit-cardSoft p-3">
+            <p class="text-[11px] text-slate-400">
+              This dashboard is a <span class="text-slate-200 font-medium">front-end Orbit pilot</span>.
+              Online status, orders, and payouts will sync with the FastAPI backend + WebSocket engine next.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Main dashboard content -->
+        <section class="flex-1 space-y-6">
+          <!-- Row: metrics -->
+          <div class="grid gap-4 md:grid-cols-4">
+            <!-- Earnings -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-cardSoft/90 p-4">
+              <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                Earnings today
+              </p>
+              <p class="mt-2 text-2xl font-semibold">$128.40</p>
+              <p class="mt-1 text-[11px] text-emerald-400">
+                +$34 vs. yesterday
+              </p>
+            </div>
+
+            <!-- Runs -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-cardSoft/90 p-4">
+              <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                Runs completed
+              </p>
+              <p class="mt-2 text-2xl font-semibold">4</p>
+              <p class="mt-1 text-[11px] text-slate-400">
+                1 active · 2 offers nearby
+              </p>
+            </div>
+
+            <!-- Miles -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-cardSoft/90 p-4">
+              <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                Miles driven
+              </p>
+              <p class="mt-2 text-2xl font-semibold">23.7</p>
+              <p class="mt-1 text-[11px] text-slate-400">
+                Est. $0.65/mi effective
+              </p>
+            </div>
+
+            <!-- Rating -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-cardSoft/90 p-4">
+              <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                Rating
+              </p>
+              <p class="mt-2 text-2xl font-semibold">4.9</p>
+              <p class="mt-1 text-[11px] text-slate-400">
+                82 lifetime reviews
+              </p>
+            </div>
+          </div>
+
+          <!-- Row: active delivery + map -->
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+            <!-- Active delivery card -->
+            <div class="rounded-3xl border border-white/8 bg-gradient-to-br from-orbit-card to-orbit-cardSoft p-4 md:p-5 space-y-4">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                    Active delivery
+                  </p>
+                  <h2 class="mt-1 text-base font-semibold">Lumber pickup · Home Depot → South Austin</h2>
+                  <p class="mt-1 text-[11px] text-slate-400">
+                    Order #CL-2841 · Building materials · Large truck / trailer
+                  </p>
+                </div>
+                <span class="inline-flex items-center rounded-full bg-amber-500/15 px-3 py-1 text-[11px] font-semibold text-amber-300 border border-amber-500/40">
+                  En route · 18 min left
+                </span>
+              </div>
+
+              <div class="grid gap-3 md:grid-cols-3 text-[11px] text-slate-300">
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wide text-[10px] text-slate-500">Pickup</p>
+                  <p class="text-xs text-slate-100">Home Depot · Sunset Valley</p>
+                  <p class="text-[11px] text-slate-500">Ready at loading bay B</p>
+                </div>
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wide text-[10px] text-slate-500">Dropoff</p>
+                  <p class="text-xs text-slate-100">705 Pigeon Forge Rd</p>
+                  <p class="text-[11px] text-slate-500">Contact: Alex · (512) 555-0172</p>
+                </div>
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wide text-[10px] text-slate-500">Payout</p>
+                  <p class="text-xs text-slate-100">$42.60 est.</p>
+                  <p class="text-[11px] text-emerald-400">+ 65 pilot points</p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2 text-[11px]">
+                <span class="inline-flex items-center gap-1 rounded-full bg-white/5 px-3 py-1 text-slate-200">
+                  ETA window: <span class="font-semibold">3:15–3:35 PM</span>
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-full bg-white/5 px-3 py-1 text-slate-200">
+                  Distance: <span class="font-semibold">8.7 mi</span>
+                </span>
+                <span class="inline-flex items-center gap-1 rounded-full bg-white/5 px-3 py-1 text-slate-200">
+                  Vehicle: <span class="font-semibold">Large truck / trailer</span>
+                </span>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-400">
+                  <span class="inline-flex items-center gap-1">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    Live tracking will plug into maps + WebSockets here.
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center rounded-full bg-white/5 px-3 py-1.5 text-[11px] text-slate-200 hover:bg-white/10 transition">
+                    Mark picked up (UI only)
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center rounded-full bg-orbit-primary px-3 py-1.5 text-[11px] font-semibold text-black hover:brightness-110 shadow-[0_0_24px_rgba(255,122,26,0.6)] transition">
+                    Mark delivered
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map placeholder / upcoming jobs -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-card/90 p-4 md:p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                    Nearby offers (mock)
+                  </p>
+                  <p class="mt-1 text-sm font-semibold">Jobs within ~10 miles</p>
+                </div>
+                <span class="text-[11px] text-slate-400">Backend will feed these live.</span>
+              </div>
+
+              <div class="space-y-2 text-[11px]">
+                <div class="flex items-center justify-between rounded-2xl bg-white/5 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Appliance delivery · North Austin</p>
+                    <p class="text-[11px] text-slate-400">Est. $28 · 5.1 mi · 45–60 min</p>
+                  </div>
+                  <button
+                    class="rounded-full bg-orbit-primary/10 px-3 py-1 text-[11px] font-semibold text-orbit-primary hover:bg-orbit-primary/20">
+                    View
+                  </button>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white/2 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Furniture pickup · IKEA → South</p>
+                    <p class="text-[11px] text-slate-400">Est. $36 · 9.3 mi · 60–75 min</p>
+                  </div>
+                  <button
+                    class="rounded-full bg-white/5 px-3 py-1 text-[11px] text-slate-200 hover:bg-white/10">
+                    View
+                  </button>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white/2 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Same-day docs · Downtown loop</p>
+                    <p class="text-[11px] text-slate-400">Est. $18 · 3.2 mi · 30–45 min</p>
+                  </div>
+                  <button
+                    class="rounded-full bg-white/5 px-3 py-1 text-[11px] text-slate-200 hover:bg-white/10">
+                    View
+                  </button>
+                </div>
+              </div>
+
+              <p class="pt-1 text-[11px] text-slate-500">
+                In production, this panel becomes a live map + job feed powered by your distance engine,
+                surge logic, and courier availability.
+              </p>
+            </div>
+          </div>
+
+          <!-- Row: pilot points + history -->
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+            <!-- Pilot points -->
+            <div class="rounded-3xl border border-orange-500/40 bg-gradient-to-br from-orbit-primarySoft/70 via-amber-500/10 to-orbit-card p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.18em] text-amber-300/80">
+                    Pilot points
+                  </p>
+                  <p class="mt-1 text-lg font-semibold text-amber-100">820 pts · Bronze tier</p>
+                </div>
+                <span class="rounded-full bg-black/30 px-3 py-1 text-[11px] text-amber-100 border border-amber-500/60">
+                  180 pts to Silver
+                </span>
+              </div>
+              <ul class="text-[11px] text-amber-100/90 space-y-1.5">
+                <li>+65 pts · On-time delivery (today)</li>
+                <li>+40 pts · Taking a rush building materials run</li>
+                <li>+15 pts · Customer five-star rating</li>
+              </ul>
+              <p class="text-[11px] text-amber-100/80 pt-1">
+                Pilot perks: early access bonuses, preferred routing, and extra payouts on select partners.
+              </p>
+            </div>
+
+            <!-- Recent deliveries list -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-card/90 p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                  Today’s completed runs (mock)
+                </p>
+                <button class="text-[11px] text-slate-300 hover:text-orbit-primary">
+                  View full history
+                </button>
+              </div>
+
+              <div class="space-y-2 text-[11px]">
+                <div class="flex items-center justify-between rounded-2xl bg-white/5 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Garden center → South Austin</p>
+                    <p class="text-[11px] text-slate-400">Delivered 1:42 PM · $24.80 · 6.0 mi</p>
+                  </div>
+                  <span class="text-emerald-400 font-semibold">✓</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white/2 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Appliance haul · Central</p>
+                    <p class="text-[11px] text-slate-400">Delivered 12:10 PM · $38.60 · 7.4 mi</p>
+                  </div>
+                  <span class="text-emerald-400 font-semibold">✓</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white/2 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Small parcel loop · Downtown</p>
+                    <p class="text-[11px] text-slate-400">Delivered 10:22 AM · $17.00 · 3.0 mi</p>
+                  </div>
+                  <span class="text-emerald-400 font-semibold">✓</span>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-slate-500 pt-1">
+                Once backed by the FastAPI services, these rows will pull from real delivery history and
+                quote IDs generated from your Orbit engine.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/40">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+        <span>© <span id="footer-year"></span> Courier Lifts · Courier dashboard pilot</span>
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="hover:text-slate-300">Back to quote page</a>
+          <a href="login.html" class="hover:text-slate-300">Log in</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "courierlifts-web-orbit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo \"Static site – no build step\""
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}

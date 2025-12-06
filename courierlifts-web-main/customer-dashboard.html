@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Courier Lifts · Customer dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CDN for Orbit UI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orbit: {
+              bg: "#0b0e14",
+              card: "#141824",
+              cardSoft: "#181c27",
+              primary: "#ff7a1a",
+              primarySoft: "rgba(255,122,26,0.12)",
+            }
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-orbit-bg text-slate-100 antialiased">
+  <div class="min-h-screen flex flex-col">
+    <!-- Top header -->
+    <header class="border-b border-white/5 bg-black/30 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-orbit-primary to-orange-500 text-sm font-semibold text-black shadow-[0_0_24px_rgba(255,122,26,0.7)]">
+            CL
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="text-sm font-semibold tracking-wide">Courier Lifts</span>
+            <span class="text-[11px] text-slate-400">Customer dashboard · Orbit pilot</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex flex-col text-right leading-tight">
+            <span class="text-xs text-slate-400">Signed in as</span>
+            <span class="text-sm font-medium">Demo customer</span>
+          </div>
+          <span
+            class="inline-flex items-center gap-2 rounded-full bg-orbit-primarySoft px-4 py-1.5 text-xs font-semibold text-orbit-primary border border-orbit-primary/50">
+            <span class="h-2 w-2 rounded-full bg-orbit-primary"></span>
+            Tracking view · UI only
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content with sidebar -->
+    <main class="flex-1">
+      <div class="max-w-6xl mx-auto px-4 py-6 md:py-8 flex flex-col md:flex-row gap-6">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-60 shrink-0 space-y-4">
+          <!-- Customer summary card -->
+          <div class="rounded-3xl border border-white/8 bg-orbit-card/90 p-4 space-y-3 shadow-[0_18px_45px_rgba(0,0,0,0.65)]">
+            <div class="flex items-center gap-3">
+              <div
+                class="h-10 w-10 rounded-2xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center text-sm font-semibold text-black">
+                WS
+              </div>
+              <div class="leading-tight">
+                <p class="text-sm font-semibold">Will Sellers</p>
+                <p class="text-[11px] text-slate-400">Austin, TX · Customer</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-[11px] text-slate-400 pt-2">
+              <div>
+                <p class="uppercase tracking-wide text-[10px] text-slate-500">Total deliveries</p>
+                <p class="text-sm text-slate-100 font-medium">18</p>
+              </div>
+              <div>
+                <p class="uppercase tracking-wide text-[10px] text-slate-500">Pilot points</p>
+                <p class="text-sm text-slate-100 font-medium">240 pts</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nav list -->
+          <nav class="rounded-3xl border border-white/8 bg-orbit-card/80 p-3 text-sm space-y-1">
+            <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500 px-2 pb-1">
+              Dashboard
+            </p>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl bg-white/5 px-3 py-2 text-xs font-medium text-slate-100 border border-white/10">
+              <span class="flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full bg-orbit-primary"></span>
+                Overview
+              </span>
+              <span class="text-[11px] text-slate-400">Today</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/5">
+              <span>Active order</span>
+              <span class="text-[11px] text-slate-500">1</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/5">
+              <span>Delivery history</span>
+              <span class="text-[11px] text-slate-500">Pilot</span>
+            </button>
+            <button
+              class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-xs font-medium text-slate-300 hover:bg-white/5">
+              <span>Saved addresses</span>
+              <span class="text-[11px] text-slate-500">Home · Work</span>
+            </button>
+
+            <div class="pt-3 border-t border-white/5 mt-2 space-y-2">
+              <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500 px-2">
+                Pilot
+              </p>
+              <button
+                class="w-full flex items-center justify-between rounded-2xl px-3 py-2 text-[11px] font-medium text-amber-200 bg-orbit-primarySoft border border-orbit-primary/40">
+                <span>Points & perks</span>
+                <span>View</span>
+              </button>
+            </div>
+          </nav>
+
+          <!-- Small info block -->
+          <div class="rounded-3xl border border-white/8 bg-gradient-to-br from-orbit-card to-orbit-cardSoft p-3">
+            <p class="text-[11px] text-slate-400">
+              This customer dashboard is a <span class="text-slate-200 font-medium">front-end Orbit pilot</span>.
+              Live tracking, history, and saved addresses will sync with your FastAPI backend + WebSocket feed.
+            </p>
+          </div>
+        </aside>
+
+        <!-- Main dashboard content -->
+        <section class="flex-1 space-y-6">
+          <!-- Row: active order + summary -->
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <!-- Active order -->
+            <div class="rounded-3xl border border-white/8 bg-gradient-to-br from-orbit-card to-orbit-cardSoft p-4 md:p-5 space-y-4">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                    Active delivery
+                  </p>
+                  <h2 class="mt-1 text-base font-semibold">Building materials from Sunset Valley</h2>
+                  <p class="mt-1 text-[11px] text-slate-400">
+                    Order #CL-2841 · Large truck · Same-day
+                  </p>
+                </div>
+                <span class="inline-flex items-center rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold text-emerald-300 border border-emerald-500/40">
+                  On the way · 18 min left
+                </span>
+              </div>
+
+              <div class="grid gap-3 md:grid-cols-3 text-[11px] text-slate-300">
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wide text-[10px] text-slate-500">From</p>
+                  <p class="text-xs text-slate-100">Home Depot · Sunset Valley</p>
+                  <p class="text-[11px] text-slate-500">Picked up at 2:46 PM</p>
+                </div>
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wide text-[10px] text-slate-500">To</p>
+                  <p class="text-xs text-slate-100">705 Pigeon Forge Rd</p>
+                  <p class="text-[11px] text-slate-500">Gate code: #4821</p>
+                </div>
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wide text-[10px] text-slate-500">Courier</p>
+                  <p class="text-xs text-slate-100">Jordan Lane</p>
+                  <p class="text-[11px] text-emerald-400">4.9 ★ · 80+ deliveries</p>
+                </div>
+              </div>
+
+              <!-- Timeline -->
+              <div class="mt-2 space-y-2 text-[11px]">
+                <p class="uppercase tracking-wide text-[10px] text-slate-500">Status timeline (mock)</p>
+                <ol class="space-y-1">
+                  <li class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    <span>Picked up · 2:46 PM</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-300/80"></span>
+                    <span>En route · 8.7 mi distance</span>
+                  </li>
+                  <li class="flex items-center gap-2 text-slate-500">
+                    <span class="h-1.5 w-1.5 rounded-full bg-slate-500/60"></span>
+                    <span>Estimated arrival · 3:15–3:35 PM</span>
+                  </li>
+                </ol>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-400">
+                  <span class="inline-flex items-center gap-1">
+                    <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                    Live map + courier location will plug in here.
+                  </span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    class="inline-flex items-center rounded-full bg-white/5 px-3 py-1.5 text-[11px] text-slate-200 hover:bg-white/10 transition">
+                    Share tracking link
+                  </button>
+                  <button
+                    type="button"
+                    class="inline-flex items-center rounded-full bg-orbit-primary px-4 py-1.5 text-[11px] font-semibold text-black hover:brightness-110 shadow-[0_0_24px_rgba(255,122,26,0.6)] transition">
+                    Report issue (UI)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Summary / map placeholder -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-card/90 p-4 md:p-5 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                    At-a-glance
+                  </p>
+                  <p class="mt-1 text-sm font-semibold">Today’s deliveries</p>
+                </div>
+                <span class="text-[11px] text-slate-400">Mock data for demo.</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 text-[11px]">
+                <div class="rounded-2xl bg-orbit-cardSoft/80 border border-white/10 p-3">
+                  <p class="text-[10px] uppercase tracking-wide text-slate-500">
+                    Deliveries this week
+                  </p>
+                  <p class="mt-2 text-xl font-semibold">3</p>
+                  <p class="mt-1 text-[11px] text-slate-400">1 active · 2 completed</p>
+                </div>
+                <div class="rounded-2xl bg-orbit-cardSoft/80 border border-white/10 p-3">
+                  <p class="text-[10px] uppercase tracking-wide text-slate-500">
+                    Spend this week
+                  </p>
+                  <p class="mt-2 text-xl font-semibold">$142.80</p>
+                  <p class="mt-1 text-[11px] text-slate-400">Includes rush building runs</p>
+                </div>
+              </div>
+
+              <div class="mt-1 rounded-2xl bg-black/30 border border-white/10 h-32 flex items-center justify-center text-[11px] text-slate-500">
+                Map / live route preview placeholder
+              </div>
+
+              <p class="text-[11px] text-slate-500">
+                When wired up, this panel will pull in your real delivery history, spend, and live route from the same engine that powers your quote page.
+              </p>
+            </div>
+          </div>
+
+          <!-- Row: history + points -->
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+            <!-- Delivery history -->
+            <div class="rounded-3xl border border-white/8 bg-orbit-card/90 p-4 space-y-3">
+              <div class="flex items-center justify-between">
+                <p class="text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                  Recent deliveries (mock)
+                </p>
+                <button class="text-[11px] text-slate-300 hover:text-orbit-primary">
+                  View full history
+                </button>
+              </div>
+              <div class="space-y-2 text-[11px]">
+                <div class="flex items-center justify-between rounded-2xl bg-white/5 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Appliance delivery · North Austin</p>
+                    <p class="text-[11px] text-slate-400">Delivered yesterday · $58.20 · 9.3 mi</p>
+                  </div>
+                  <span class="text-emerald-400 font-semibold">✓</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white/2 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Flooring pallet · South Austin</p>
+                    <p class="text-[11px] text-slate-400">Delivered 3 days ago · $44.10 · 7.1 mi</p>
+                  </div>
+                  <span class="text-emerald-400 font-semibold">✓</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white/2 px-3 py-2">
+                  <div>
+                    <p class="text-xs text-slate-100">Paint & sundries · Downtown</p>
+                    <p class="text-[11px] text-slate-400">Delivered last week · $26.80 · 4.0 mi</p>
+                  </div>
+                  <span class="text-emerald-400 font-semibold">✓</span>
+                </div>
+              </div>
+              <p class="pt-1 text-[11px] text-slate-500">
+                In production, these rows will map to your actual orders. Each order can link to a full receipt and tracking timeline.
+              </p>
+            </div>
+
+            <!-- Points / perks -->
+            <div class="rounded-3xl border border-orange-500/40 bg-gradient-to-br from-orbit-primarySoft/70 via-amber-500/10 to-orbit-card p-4 space-y-3">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.18em] text-amber-300/80">
+                    Pilot points
+                  </p>
+                  <p class="mt-1 text-sm font-semibold text-amber-100">
+                    240 pts · Customer perks
+                  </p>
+                </div>
+                <span class="rounded-full bg-black/30 px-3 py-1 text-[11px] text-amber-100 border border-amber-500/60">
+                  60 pts to next perk
+                </span>
+              </div>
+              <ul class="text-[11px] text-amber-100/90 space-y-1.5">
+                <li>• +40 pts · Rush delivery completed on time.</li>
+                <li>• +30 pts · Rated courier 5 stars.</li>
+                <li>• +20 pts · Repeating a past merchant within 30 days.</li>
+              </ul>
+              <p class="text-[11px] text-amber-100/80 pt-1">
+                Future versions can show perk tiers like fee discounts, priority windows, or partner offers.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-black/40">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
+        <span>© <span id="footer-year"></span> Courier Lifts · Customer dashboard pilot</span>
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="hover:text-slate-300">Back to quote page</a>
+          <a href="login.html" class="hover:text-slate-300">Log in</a>
+          <a href="courier-dashboard.html" class="hover:text-slate-300">Courier view</a>
+          <a href="merchant-dashboard.html" class="hover:text-slate-300">Merchant view</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

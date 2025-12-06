@@ -1,241 +1,262 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Courier Lifts | Delivery Revolution</title>
-    <meta
-      name="description"
-      content="Courier Lifts: The all-in-one P2P delivery revolution with real-time transparency."
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script>
-      // Optional: set this for local dev switching; remove or change for prod
-      window.BACKEND_URL = window.BACKEND_URL || "http://localhost:8000";
-    </script>
-    <script defer src="script.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-  window.BACKEND_URL = "/api";  // production: use Netlify proxy
-</script>
-
-  </head>
-  <body>
-    <div class="app">
-      <!-- Optional fixed UI placeholders (script.js will auto-create if missing) -->
-      <div id="toast" class="cl-toast" style="display:none;"></div>
-      <div id="loginStatus" class="cl-badge"></div>
-
-      <header class="site-header">
-        <div class="logo-container">
-          <img
-            id="logo"
-            src="assets/logo_transparent_light.png"
-            alt="Courier Lifts Logo"
-          />
-          <span class="brand-name">COURIER LIFTS</span>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courier Lifts · Orbit V2</title>
+  <meta
+    name="description"
+    content="Courier Lifts — your all-in-one delivery revolution. Get an instant quote for anything, anywhere."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <script defer src="script.js"></script>
+</head>
+<body class="theme-dark">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">CL</div>
+        <div class="brand-text">
+          <span class="brand-title">Courier Lifts</span>
+          <span class="brand-subtitle">Your All-in-One Delivery Revolution</span>
         </div>
-        <label class="theme-toggle">
-          <span>Dark</span>
-          <input type="checkbox" id="themeSwitch" />
-          <span class="slider"></span>
-        </label>
-      </header>
+      </a>
 
-      <main>
-        <!-- 💬 Login Section -->
-        <section class="login-section">
-          <h1>Your All-in-One Delivery Revolution</h1>
-          <p class="tagline">
-            Connecting couriers, merchants, and consumers like never before.
-          </p>
-
-          <form id="loginForm" aria-labelledby="login-label">
-            <h2 id="login-label" class="visually-hidden">Login Form</h2>
-
-            <label for="loginEmail">Email</label>
-            <input
-              type="email"
-              id="loginEmail"
-              name="email"
-              placeholder="Email"
-              required
-              autocomplete="email"
-            />
-
-            <label for="loginPassword">Password</label>
-            <input
-              type="password"
-              id="loginPassword"
-              name="password"
-              placeholder="Password"
-              required
-              autocomplete="current-password"
-            />
-
-            <label for="role">Your Role</label>
-            <select id="role" name="role" required>
-              <option value="">
-                Select your role: Courier, Merchant, Customer
-              </option>
-              <option value="courier">Courier</option>
-              <option value="merchant">Merchant</option>
-              <option value="customer">Customer</option>
-            </select>
-
-            <button id="loginBtn" type="submit" class="glow">LOGIN</button>
-            <p id="loginMsg" aria-live="polite"></p>
-          </form>
-
-          <div class="links">
-            <a href="signup.html">Sign Up</a>
-            <a href="why.html">Why Courier Lifts?</a>
-            <a href="learn-more.html">Learn More</a>
-          </div>
-
-          <div class="quote-link">
-            <a class="glow cta-button" href="#quote-section"
-              >Get My Instant Delivery Quote</a
-            >
-          </div>
-
-          <div class="social-icons">
-            <a
-              href="https://x.com/CourierLiftsApp"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <img src="assets/x.svg" alt="X" />
-            </a>
-            <a
-              href="https://facebook.com/CourierLiftsApp"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <img src="assets/facebook.svg" alt="Facebook" />
-            </a>
-          </div>
-
-          <footer>
-            <p>© 2025 Courier Lifts. Built with speed and hustle.</p>
-          </footer>
-        </section>
-
-        <!-- 🚚 Quote Calculator -->
-        <section id="quote-section" class="animate-on-scroll">
-          <h2>Get Your Delivery Quote</h2>
-
-          <form id="quoteForm" class="quote-form">
-            <label for="pickup">Pickup Address</label>
-            <input
-              type="text"
-              id="pickup"
-              placeholder="Pickup Address"
-              required
-            />
-
-            <label for="dropoff">Dropoff Address</label>
-            <input
-              type="text"
-              id="dropoff"
-              placeholder="Dropoff Address"
-              required
-            />
-
-            <label for="vehicle">Vehicle Type</label>
-            <select id="vehicle" required aria-required="true">
-              <option value="">Select Vehicle Type</option>
-              <option value="bike">Bike</option>
-              <option value="car">Car</option>
-              <option value="van">Van</option>
-              <option value="truck">Truck</option>
-            </select>
-
-            <label for="weight">Item Weight (lbs)</label>
-            <input
-              type="number"
-              id="weight"
-              placeholder="Item Weight (lbs)"
-              min="0"
-              required
-              aria-required="true"
-            />
-
-            <label for="quantity">Item Quantity</label>
-            <input
-              type="number"
-              id="quantity"
-              placeholder="Item Quantity"
-              min="1"
-              required
-              aria-required="true"
-            />
-
-            <label for="dimensions">Dimensions (L x W x H in inches)</label>
-            <input
-              type="text"
-              id="dimensions"
-              placeholder="Dimensions (L x W x H in inches)"
-            />
-
-            <label for="item_type">Item Type</label>
-            <select id="item_type" required aria-required="true">
-              <option value="">Select Item Type</option>
-              <option value="general">General Goods</option>
-              <option value="electronics">Electronics</option>
-              <option value="furniture">Furniture</option>
-              <option value="fragile">Fragile / Specialty</option>
-            </select>
-
-            <button id="quoteBtn" type="submit" class="glow">Get Estimate</button>
-          </form>
-
-          <div id="quoteResult" class="quote-result"></div>
-          <div id="priceOut" class="quote-result" aria-live="polite"></div>
-        </section>
-
-        <!-- 🧾 My Orders (new) -->
-        <section class="orders-section animate-on-scroll">
-          <h2>My Orders</h2>
-          <button id="myOrdersBtn" class="glow">📦 My Orders</button>
-          <div id="orderOut" class="quote-result" aria-live="polite"></div>
-          <div id="ordersOut"></div>
-        </section>
-
-        <!-- ✉️ Pilot Sign-Up -->
-        <section class="pilot-signup animate-on-scroll">
-          <h3>Join Our Early Access Pilot</h3>
-          <p>
-            Be the first to test our delivery revolution—exclusive perks for
-            couriers, merchants, and consumers!
-          </p>
-
-          <form id="pilotForm">
-            <label for="pilotEmail">Email</label>
-            <input
-              type="email"
-              id="pilotEmail"
-              placeholder="Enter your email"
-              required
-              aria-required="true"
-            />
-
-            <label for="pilotRole">Your Role</label>
-            <select id="pilotRole" required aria-required="true">
-              <option value="">Select Role</option>
-              <option value="courier">Courier</option>
-              <option value="merchant">Merchant</option>
-              <option value="customer">Customer</option>
-            </select>
-
-            <button type="submit" class="glow">Join Now</button>
-            <p id="formStatus" style="margin-top: 10px;"></p>
-          </form>
-        </section>
-      </main>
+      <nav class="nav">
+        <a href="#quote" class="nav-link">Get a quote</a>
+        <a href="learn-more.html" class="nav-link">Learn more</a>
+        <a href="why.html" class="nav-link">Why Courier Lifts?</a>
+        <a href="signup.html" class="nav-link nav-link--primary">Join the pilot</a>
+      </nav>
     </div>
-  </body>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <h1>Delivery that moves at your speed.</h1>
+          <p class="hero-lead">
+            From big box runs to last-minute pickups, Courier Lifts connects
+            <strong>local couriers, merchants, and customers</strong> on one simple platform.
+          </p>
+
+          <ul class="hero-points">
+            <li>🚚 Same-day & scheduled drops</li>
+            <li>🧭 Real-time quote breakdowns</li>
+            <li>🎮 Pilot program with points & perks</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a href="#quote" class="btn btn-primary">Check my delivery price</a>
+            <a href="signup.html" class="btn btn-ghost">Join the pilot</a>
+          </div>
+
+          <p class="hero-footnote">
+            Orbit V2 build · Frontend ready for Netlify + GitHub · Backend plug-in coming next.
+          </p>
+        </div>
+
+        <aside class="hero-panel" aria-label="Live quote preview">
+          <div class="card card-quote-preview">
+            <h2 class="card-title">Live quote preview</h2>
+            <p class="card-subtitle">Fill out the form to generate a smart estimate.</p>
+
+            <dl class="quote-stats">
+              <div class="quote-stat">
+                <dt>Estimated price</dt>
+                <dd id="preview-price">$—</dd>
+              </div>
+              <div class="quote-stat">
+                <dt>Distance</dt>
+                <dd id="preview-distance">—</dd>
+              </div>
+              <div class="quote-stat">
+                <dt>ETA</dt>
+                <dd id="preview-eta">—</dd>
+              </div>
+              <div class="quote-stat">
+                <dt>Pilot points</dt>
+                <dd id="preview-points">—</dd>
+              </div>
+            </dl>
+
+            <p class="quote-footnote">
+              *Estimates only. Final pricing and routing can be adjusted once backend + live maps
+              are connected.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Quote form -->
+    <section id="quote" class="section-quote">
+      <div class="shell">
+        <header class="section-header">
+          <h2>Get an instant delivery estimate</h2>
+          <p>
+            Enter a few details about your delivery. We’ll simulate distance, ETA, and pricing using
+            Orbit V2’s local quote engine.
+          </p>
+        </header>
+
+        <div class="quote-layout">
+          <form id="quote-form" class="card quote-form" novalidate>
+            <div class="field-group two-up">
+              <div class="field">
+                <label for="pickup">Pickup location</label>
+                <input
+                  id="pickup"
+                  name="pickup"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="123 Main St, Austin, TX"
+                  required
+                />
+                <p class="field-hint">Where the courier starts the run.</p>
+              </div>
+
+              <div class="field">
+                <label for="dropoff">Dropoff location</label>
+                <input
+                  id="dropoff"
+                  name="dropoff"
+                  type="text"
+                  autocomplete="off"
+                  placeholder="456 Oak Ave, Austin, TX"
+                  required
+                />
+                <p class="field-hint">Where the order needs to land.</p>
+              </div>
+            </div>
+
+            <div class="field-group two-up">
+              <div class="field">
+                <label for="item-type">Item type</label>
+                <select id="item-type" name="itemType" required>
+                  <option value="">Select an item type</option>
+                  <option value="general">General goods</option>
+                  <option value="building">Building materials</option>
+                  <option value="appliance">Appliances</option>
+                  <option value="furniture">Furniture</option>
+                  <option value="electronics">Electronics</option>
+                </select>
+                <p class="field-hint">Helps us pick the right vehicle class.</p>
+              </div>
+
+              <div class="field">
+                <label for="priority">Delivery speed</label>
+                <select id="priority" name="priority" required>
+                  <option value="">Choose a speed</option>
+                  <option value="standard">Standard (same-day)</option>
+                  <option value="rush">Rush (2–4 hours)</option>
+                  <option value="overnight">Overnight window</option>
+                </select>
+                <p class="field-hint">Rush deliveries cost a bit more but earn more points.</p>
+              </div>
+            </div>
+
+            <div class="field-group two-up">
+              <div class="field">
+                <label for="weight">Estimated weight (lbs)</label>
+                <input
+                  id="weight"
+                  name="weight"
+                  type="number"
+                  min="1"
+                  max="500"
+                  step="1"
+                  placeholder="e.g. 40"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="size">Size category</label>
+                <select id="size" name="size" required>
+                  <option value="">Select size</option>
+                  <option value="small">Small (fits in car)</option>
+                  <option value="medium">Medium (SUV / pickup)</option>
+                  <option value="large">Large (truck / trailer)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email for pilot follow-up (optional)</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
+              <p class="field-hint">
+                We’ll use this later to connect the quote to your account once the backend is live.
+              </p>
+            </div>
+
+            <div class="field field-inline">
+              <label class="checkbox">
+                <input id="pilot-opt-in" name="pilotOptIn" type="checkbox" />
+                <span>Save this as a pilot quote once backend is connected</span>
+              </label>
+            </div>
+
+            <div class="form-footer">
+              <button type="submit" class="btn btn-primary">Generate estimate</button>
+              <p id="quote-message" class="inline-message" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <aside class="card quote-breakdown" aria-label="Quote breakdown">
+            <h3 class="card-title">Quote breakdown</h3>
+            <ul class="breakdown-list" id="breakdown-list">
+              <li class="breakdown-row">
+                <span>Base fare</span>
+                <span id="breakdown-base">—</span>
+              </li>
+              <li class="breakdown-row">
+                <span>Distance factor</span>
+                <span id="breakdown-distance">—</span>
+              </li>
+              <li class="breakdown-row">
+                <span>Weight &amp; size factor</span>
+                <span id="breakdown-weight">—</span>
+              </li>
+              <li class="breakdown-row">
+                <span>Priority multiplier</span>
+                <span id="breakdown-priority">—</span>
+              </li>
+              <li class="breakdown-row breakdown-row-total">
+                <span>Estimated total</span>
+                <span id="breakdown-total">—</span>
+              </li>
+            </ul>
+
+            <p class="quote-footnote">
+              Orbit V2 runs everything locally in the browser. When you’re ready, this panel can
+              plug directly into your Netlify functions and FastAPI backend.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>© <span id="footer-year"></span> Courier Lifts · Orbit V2 build</p>
+      <div class="footer-links">
+        <a href="learn-more.html">Learn more</a>
+        <a href="why.html">Why Courier Lifts?</a>
+        <a href="signup.html">Join the pilot</a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
